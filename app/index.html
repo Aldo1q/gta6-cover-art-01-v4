@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <aside id="toolbar">
+    <h1>Neon Coast<br><span>Cover Studio</span></h1>
+
+    <section>
+      <h2>Layout</h2>
+      <div class="btn-row" id="layoutRow">
+        <button data-layout="grid" class="pick active">Cover Grid</button>
+        <button data-layout="snapshots" class="pick">Snapshots</button>
+        <button data-layout="fullbleed" class="pick">Full Bleed</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Photo</h2>
+      <div class="btn-row" id="sampleRow">
+        <button data-sample="sample-1" class="pick active">Sample 1</button>
+        <button data-sample="sample-2" class="pick">Sample 2</button>
+        <button data-sample="sample-3" class="pick">Sample 3</button>
+      </div>
+      <label class="upload">Upload your own photo
+        <input type="file" id="upload" accept="image/*">
+      </label>
+      <p class="hint" id="panelHint">Panel 1 selected — click a panel on the cover to crop it.</p>
+      <label>Zoom <input type="range" id="zoom" min="1" max="3" step="0.01" value="1"></label>
+      <label>Offset X <input type="range" id="offx" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <label>Offset Y <input type="range" id="offy" min="-0.5" max="0.5" step="0.01" value="0"></label>
+    </section>
+
+    <section>
+      <h2>Lettering</h2>
+      <label>Caption <input type="text" id="caption" value="NEON COAST"></label>
+      <label>Script accent <input type="text" id="accent" value="vice nights"></label>
+      <label>Subtitle <input type="text" id="subtitle" value="ONE CITY · NO BRAKES · ALL SUMMER"></label>
+      <label>Ribbon badge <input type="text" id="ribbon" value="NEON COAST"></label>
+    </section>
+
+    <section>
+      <h2>Colour grade</h2>
+      <div class="btn-row" id="gradeRow">
+        <button data-grade="sunset" class="pick">Sunset</button>
+        <button data-grade="neon" class="pick">Neon</button>
+        <button data-grade="vice" class="pick active">Vice</button>
+        <button data-grade="none" class="pick">None</button>
+      </div>
+      <h2>Heat meter</h2>
+      <div id="stars" aria-label="heat meter">
+        <button data-star="1">★</button><button data-star="2">★</button><button data-star="3">★</button><button data-star="4">★</button><button data-star="5">★</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Export PNG</h2>
+      <div class="btn-row exports">
+        <button class="export" data-w="1080" data-h="1080">1080 × 1080</button>
+        <button class="export" data-w="1080" data-h="1350">1080 × 1350</button>
+        <button class="export" data-w="1920" data-h="1080">1920 × 1080</button>
+        <button class="export" data-w="1080" data-h="1920">1080 × 1920</button>
+      </div>
+    </section>
+  </aside>
+
+  <main id="stage">
+    <canvas id="cover" width="900" height="900"></canvas>
+  </main>
+</div>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
